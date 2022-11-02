@@ -1,33 +1,39 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./root.css";
 
 function root() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="root">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <div id="sidebar">
+        <h1>React Router Contacts</h1>
+        <div>
+          <form id="search-form" role="search">
+            <input
+              id="q"
+              aria-label="Search contacts"
+              placeholder="Search"
+              type="search"
+              name="q"
+            />
+            <div id="search-spinner" aria-hidden hidden={true} />
+            <div className="sr-only" aria-live="polite"></div>
+          </form>
+          <form method="post">
+            <button type="submit">New</button>
+          </form>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href={`contacts/1`}>Your Name</a>
+            </li>
+            <li>
+              <a href={`contacts/2`}>Your Friend</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/root.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+      <div id="detail"></div>
+    </>
   );
 }
 
